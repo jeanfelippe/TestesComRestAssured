@@ -7,7 +7,8 @@ Material usado como Estudos em Rest Assured baseado no conteúdo lecionado por W
 
 
 
-Caso queira executar cada teste(método) separadamente, incluir o token de autenticação e inserir no given o contentyType desejado, como no exemplo abaixo:
+Caso queira executar cada teste(método) separadamente, incluir o token de autenticação e inserir no given o contentyType desejado e descomentar o header,
+como no exemplo abaixo:
 
 
 
