@@ -19,14 +19,36 @@ public class ContasTest extends BaseTest {
 
 	
 
-	//A classe ContasTest possui o before class e o token de login
+	//Caso queira executar apenas o metodo deveincluircontatocomsucesso, descomentar o bloco de cod referente a autenticacao
 	//logar e incluir contato
 	@Test
 	public void deveIncluirContaComSucesso() {
 		System.out.println("incluir");
+		/*
+				
+		Map<String,String> login= new HashMap<>();
+		
+		//site para criar cadastro https://seubarriga.wcaquino.me/logar
+		login.put("email", "jeanfelippe300@gmail.com");
+		login.put("senha", "123456");
+
+
+		String TOKEN = given()
+				.body(login)
+			.when()
+					.post("/signin")
+			.then()
+				.statusCode(200)
+				.extract().path("token");
+		*/
+		
 		given()
+			
+			
+			
 			//.header("Authorization", "JWT " + TOKEN)
 			.body("{ \"nome\": \"Conta inserida\" }")
+			.contentType("application/json")
 		.when()
 			.post("/contas")
 		.then()
@@ -37,8 +59,8 @@ public class ContasTest extends BaseTest {
 		
 	}
 	
-	//ir· usar o id da conta criada que se encontra na url dentro do sistema "705923" e ir· alterar 
-	//ir· alterar o titulo da conta para conta alterada
+	//ir√° usar o id da conta criada que se encontra na url dentro do sistema "705923" e ir√° alterar 
+	//ir√° alterar o titulo da conta para conta alterada
 	@Test
 	public void deveAlterarContaComSucesso() {
 		Integer CONTA_ID=BarrigaUtils.getIdContaPeloNome("Conta para alterar");
@@ -67,7 +89,7 @@ public class ContasTest extends BaseTest {
 			.post("/contas")
 		.then()
 			.statusCode(400)
-			.body("error",is("J· existe uma conta com esse nome!"))
+			.body("error",is("J√° existe uma conta com esse nome!"))
 			;
 		
 	}
